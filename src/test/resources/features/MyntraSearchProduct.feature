@@ -8,9 +8,6 @@ Feature: Myntra Search Product Functionality
     Given I navigate to the Myntra homepage
     When I navigate to the "Men" category
     And I select "T-Shirts" from the subcategory
-    And I search for "polo t-shirt" in the search bar
-    And I open the first product from the search results
-    Then I should see the product details page
-    And I should compare the displayed price with the expected price
+    Then I found "THE BEAR HOUSE" in the search result
 
 

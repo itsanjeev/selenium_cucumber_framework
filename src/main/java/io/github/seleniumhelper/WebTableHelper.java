@@ -109,7 +109,6 @@ public class WebTableHelper {
         }
         try {
             List<WebElement> rows = tableElement.findElements(By.tagName("tr"));
-
             for (WebElement row : rows) {
                 List<WebElement> cols = row.findElements(By.tagName("td"));
 
@@ -135,7 +134,7 @@ public class WebTableHelper {
         } catch (Exception e) {
             String searchTextList = String.join(", ", searchTexts);
             logger.error("Error while finding row by combination of values: {}", searchTextList, e);
-            throw e;  // Rethrow the exception for further handling
+            throw e;
         }
     }
 

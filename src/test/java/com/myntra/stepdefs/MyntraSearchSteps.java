@@ -5,6 +5,7 @@ import com.myntra.pages.MyntraPageManager;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 public class MyntraSearchSteps {
     private final MyntraPageManager pageManager;
@@ -25,26 +26,14 @@ public class MyntraSearchSteps {
 
     @When("I select {string} from the subcategory")
     public void iSelectFromTheSubcategory(String subcategory) {
+        pageManager.getHomePage().navigateToSubCategory();
     }
 
-    @When("I search for {string} in the search bar")
+    @Then("I found {string} in the search result")
     public void iSearchForInTheSearchBar(String product) {
-
+        Assert.assertTrue("Product not found in the search result", pageManager.getHomePage().searchProduct(product));
     }
 
-    @When("I open the first product from the search results")
-    public void iOpenTheFirstProductFromTheSearchResults() {
 
-    }
-
-    @Then("I should see the product details page")
-    public void iShouldSeeTheProductDetailsPage() {
-
-    }
-
-    @Then("I should compare the displayed price with the expected price")
-    public void iShouldCompareTheDisplayedPriceWithTheExpectedPrice() {
-
-    }
 }
 

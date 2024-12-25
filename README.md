@@ -96,28 +96,32 @@ strategy while creating clear and understandable automated test scenarios.
 
 Below is the high-level directory structure:
 
-```
-selenium_cucumber_framework/
-├── src/
-│   ├── main/
-│   │   ├── java/
-│   │   │   └── com/
-│   │   │       └── example/
-│   │   │           ├── pages/          # Page Object Model implementations
-│   │   │           ├── utilities/      # Utility reusable methods (e.g., WebDriver manager, helpers)
-│   │   │           └── config/         # Framework configuration files
-│   │   └── resources/
-│   │       ├── features/               # Cucumber feature files
-│   │       └── config.properties       # Configuration properties file
-│   └── test/
-│       ├── java/
-│       │   └── com/
-│       │       └── example/
-│       │           ├── runners/        # Test runners for executing scenarios
-│       │           └── step_definitions/ # Step definitions for feature steps
-│       └── resources/
-│           └── test_data/              # Test data files (if applicable)
-├── target/                             # Compiled classes and generated resources (auto-created)
-├── pom.xml                             # Maven configuration file
-└── README.md                           # Documentation for the framework
-```
+.
+├── README.md  
+Contains detailed documentation about the Selenium Cucumber Framework, including features, benefits, prerequisites,
+installation steps, and example usage.
+
+├── pom.xml  
+Maven configuration file for managing project dependencies, build lifecycle, and plugins.
+
+├── src  
+│ ├── main  
+│ │ ├── java  
+│ │ │ └── io.github.seleniumhelper  
+│ │ │ Core helper classes for web automation such as element finding, dropdown handling, table interactions,
+│ │ │ and WebDriver management.  
+│ │ └── resources  
+│ │ Contains configuration files such as `log4j2.xml` for logging; used for maintaining global settings.
+
+│ └── test  
+│ ├── java  
+│ │ └── com  
+│ │ Test implementation organized by functionality.  
+│ │ - `common`: Base classes, hooks, and reusable utility classes.  
+│ │ - `internet.herokuapp`: HerokuApp-specific page objects and step definitions.  
+│ │ - `myntra`: Myntra-specific page objects and step definitions.  
+│ └── resources  
+│ ├── config  
+│ │ Contains configuration files like `config.properties` to manage test configurations.  
+│ └── features  
+│ Contains Gherkin-style feature files that define test scenarios for different applications.

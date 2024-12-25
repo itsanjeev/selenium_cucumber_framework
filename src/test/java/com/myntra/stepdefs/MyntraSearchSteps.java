@@ -1,36 +1,26 @@
 package com.myntra.stepdefs;
 
+import com.myntra.hooks.TestHooks;
+import com.myntra.pages.MyntraPageManager;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.github.seleniumhelper.ElementFinder;
-import io.github.seleniumhelper.WebDriverManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.Browser;
 
 public class MyntraSearchSteps {
+    private final MyntraPageManager pageManager;
 
-    WebDriver driver;
-    ElementFinder elementFinder;
-    String baseUrl = "https://www.myntra.com";
-    String expectedPrice = "₹1999"; // Replace with your expected price
-    final int TIMEOUT_IN_SECONDS = 10;
-
+    public MyntraSearchSteps(TestHooks testHooks) {
+        this.pageManager = new MyntraPageManager(testHooks.getDriver());
+    }
 
     @Given("I navigate to the Myntra homepage")
     public void iNavigateToTheMyntraHomepage() {
-        WebDriverManager.createDriver(Browser.CHROME);
-        driver = WebDriverManager.getDriver();
-        elementFinder = new ElementFinder();
-        driver.get(baseUrl);
+        pageManager.getHomePage().navigateToHomePage();
     }
 
     @When("I navigate to the {string} category")
     public void iNavigateToTheCategory(String category) {
-        WebElement categoryElement = elementFinder.getElement(driver, By.linkText(category), TIMEOUT_IN_SECONDS);
-        categoryElement.click();
+        pageManager.getHomePage().navigateToCategoryAndSubCategory();
     }
 
     @When("I select {string} from the subcategory")
@@ -55,7 +45,6 @@ public class MyntraSearchSteps {
     @Then("I should compare the displayed price with the expected price")
     public void iShouldCompareTheDisplayedPriceWithTheExpectedPrice() {
 
-        WebDriverManager.quitDriver();
     }
 }
 

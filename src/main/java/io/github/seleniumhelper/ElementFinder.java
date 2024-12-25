@@ -15,22 +15,18 @@ public class ElementFinder {
     private static final Logger logger = LogManager.getLogger(ElementFinder.class);
 
     public WebElement getElement(WebDriver driver, final By elementLocator, int timeOutInSecs) {
-        logger.info("Attempting to find element by locator: {}", elementLocator);
         return waitForElement(driver, elementLocator, timeOutInSecs);
     }
 
     public List<WebElement> getElements(WebDriver driver, final By elementLocator, int timeOutInSecs) {
-        logger.info("Attempting to find elements by locator: {}", elementLocator);
         return waitForElements(driver, elementLocator, timeOutInSecs);
     }
 
     public WebElement getElementByIdOrName(WebDriver driver, final String byIdOrName, int timeOutInSecs) {
-        logger.info("Attempting to find element by Id or Name: {}", byIdOrName);
         return waitForElement(driver, new ByIdOrName(byIdOrName), timeOutInSecs);
     }
 
     public WebElement getElementByChained(WebDriver driver, final ByChained chainedValue, int timeOutInSecs) {
-        logger.info("Attempting to find element by chained locator: {}", chainedValue);
         return waitForElement(driver, chainedValue, timeOutInSecs);
     }
 

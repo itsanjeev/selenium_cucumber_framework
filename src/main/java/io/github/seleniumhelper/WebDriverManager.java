@@ -52,7 +52,7 @@ public class WebDriverManager {
         LOG.info("Setting up Chrome Driver...");
         ChromeOptions options = new ChromeOptions();
         options.addArguments(NO_SANDBOX, DISABLE_DEV_SHM);
-        //options.addArguments(HEADLESS);
+        options.addArguments(HEADLESS);
         DRIVER.set(new ChromeDriver(options));
         LOG.info("Chrome Driver created successfully!");
     }

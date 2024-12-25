@@ -1,4 +1,4 @@
-package com.myntra.hooks;
+package com.common;
 
 import io.cucumber.java.Before;
 import io.cucumber.java.After;

@@ -1,6 +1,6 @@
 package com.myntra.stepdefs;
 
-import com.myntra.hooks.TestHooks;
+import com.common.TestHooks;
 import com.myntra.pages.MyntraPageManager;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

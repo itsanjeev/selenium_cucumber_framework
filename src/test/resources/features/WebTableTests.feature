@@ -16,3 +16,7 @@ Feature: WebTableHelper - This feature provides helper methods to interact with 
   Scenario: Get the number of rows in the table
     When I determine the total number of rows in the table
     Then the result should be 5
+
+  Scenario: Get the exact rows with combination of text
+    When I find row contains text "Doe", "Jason" , "jdoe@hotmail.com"
+    Then the row identified should include "Doe" , "Jason ", "jdoe@hotmail.com"

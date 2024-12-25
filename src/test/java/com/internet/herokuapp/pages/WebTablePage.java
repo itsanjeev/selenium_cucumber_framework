@@ -33,4 +33,9 @@ public class WebTablePage extends BasePage {
         WebElement tableElement = super.elementFinder.getElement(driver, tableLocator, 10);
         return super.webTableHelper.getTableRows(tableElement).size();
     }
+
+    public String getRowUsingCombinationOfText(String... searchText) {
+        WebElement tableElement = super.elementFinder.getElement(driver, tableLocator, 10);
+        return super.webTableHelper.findRowByCombination(tableElement, searchText).getText();
+    }
 }

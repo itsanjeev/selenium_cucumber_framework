@@ -58,4 +58,16 @@ public class WebTableSteps {
         Assert.assertEquals("Row count is not correct",
                 expectedRowCount, pageManager.getWebTablePage().getNumberOfRows());
     }
+
+    @When("I find row contains text {string}, {string} , {string}")
+    public void iFindRowContainsText(String searchText, String searchText2, String searchText3) {
+        String foundRow = pageManager.getWebTablePage().getRowUsingCombinationOfText(searchText, searchText2, searchText3);
+        scenarioContext.set("foundRow", foundRow);
+    }
+
+    @Then("the row identified should include {string} , {string}, {string}")
+    public void theRowIdentifiedShouldInclude(String arg0, String arg1, String arg2) {
+        String foundRow = scenarioContext.get("foundRow");
+        Assert.assertTrue("Row identified is not correct", foundRow.contains(arg0) && foundRow.contains(arg1) && foundRow.contains(arg2));
+    }
 }

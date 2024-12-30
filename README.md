@@ -132,10 +132,17 @@ for file in $files; do
   if [[ "$file" == *.java ]]; then
     # Check if the file is a text file (not binary)
     if file --mime-type "$file" | grep -q "text"; then
-      # Check if the file is UTF-8 encoded using 'iconv'
-      if ! iconv -f utf-8 -t utf-8 "$file" > /dev/null 2>&1; then
-        echo "Error: The file '$file' is not UTF-8 encoded."
+      # Attempt to convert the file to UTF-8 and detect errors
+      if ! iconv -f utf-8 -t utf-8 "$file" -o /dev/null 2>&1; then
+        echo "Error: The file '$file' is not UTF-8 encoded. It might be in ISO-8859-1 or another encoding."
         exit 1  # Abort commit if any file is not UTF-8 encoded
+      fi
+
+      # Optionally, you can check for other encodings, e.g., ISO-8859-1
+      if file -i "$file" | grep -q 'iso-8859-1'; then
+        echo "Warning: The file '$file' is ISO-8859-1 encoded. Consider converting it to UTF-8."
+        # You can exit with a warning, or just allow the commit but log the warning
+        # exit 1  # Uncomment this line to block commit if ISO-8859-1 is detected
       fi
     fi
   fi
@@ -143,6 +150,7 @@ done
 
 # Allow commit if all checks pass
 exit 0
+
 
 ```
 

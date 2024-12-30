@@ -95,62 +95,8 @@ strategy while creating clear and understandable automated test scenarios.
 Below is the high-level directory structure:
 
 ```
-├── pom.xml  
-│ Maven configuration file for managing project dependencies, build lifecycle, and plugins.  
-├── src  
-│ ├── main  
-│ │ ├── java  
-│ │ │ └── io.github.seleniumhelper  
-│ │ │ Core helper classes for web automation such as element finding, dropdown handling, table interactions, and
-WebDriver management.  
-│ │ └── resources  
-│ │ Contains configuration files such as `log4j2.xml` for logging and global settings.  
-│ ├── test  
-│ │ ├── java  
-│ │ │ └── com  
-│ │ │ ├── common  
-│ │ │ │ Base classes, hooks, and reusable utility classes.  
-│ │ │ ├── internet.herokuapp  
-│ │ │ │ HerokuApp-specific page objects and step definitions.  
-│ │ │ └── myntra  
-│ │ │ Myntra-specific page objects and step definitions.  
-│ │ └── resources  
-│ │ ├── config  
-│ │ │ Contains configuration files like `config.properties` for test configurations.  
-│ │ └── features  
-│ │ Contains feature files written in Gherkin syntax defining test scenarios.
-```
-```bash
-#!/bin/bash
-
-# List all files that are being staged
-files=$(git diff --cached --name-only --diff-filter=ACM)
-
-# Loop through all the files
-for file in $files; do
-  # Only check .java files
-  if [[ "$file" == *.java ]]; then
-    # Check if the file is a text file (not binary)
-    if file --mime-type "$file" | grep -q "text"; then
-      # Attempt to convert the file to UTF-8 and detect errors
-      if ! iconv -f utf-8 -t utf-8 "$file" -o /dev/null 2>&1; then
-        echo "Error: The file '$file' is not UTF-8 encoded. It might be in ISO-8859-1 or another encoding."
-        exit 1  # Abort commit if any file is not UTF-8 encoded
-      fi
-
-      # Optionally, you can check for other encodings, e.g., ISO-8859-1
-      if file -i "$file" | grep -q 'iso-8859-1'; then
-        echo "Warning: The file '$file' is ISO-8859-1 encoded. Consider converting it to UTF-8."
-        # You can exit with a warning, or just allow the commit but log the warning
-        # exit 1  # Uncomment this line to block commit if ISO-8859-1 is detected
-      fi
-    fi
-  fi
-done
-
-# Allow commit if all checks pass
-exit 0
-
 
 ```
+
+
 

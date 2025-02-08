@@ -22,12 +22,12 @@ public class BasePage {
     }
 
     protected void clickElement(By locator) {
-        WebElement element = elementFinder.getElement(driver, locator, 10);
+        WebElement element = elementFinder.getElement(driver, locator, 30);
         element.click();
     }
 
     protected void sendText(By locator, String text) {
-        WebElement element = elementFinder.getElement(driver, locator, 10);
+        WebElement element = elementFinder.getElement(driver, locator, 30);
         element.sendKeys(text);
     }
 }

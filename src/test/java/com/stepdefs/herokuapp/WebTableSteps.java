@@ -1,4 +1,4 @@
-package com.internet.herokuapp.stepdefs;
+package com.stepdefs.herokuapp;
 
 import com.common.TestHooks;
 import com.internet.herokuapp.pages.HerokuPageManager;

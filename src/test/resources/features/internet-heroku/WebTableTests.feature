@@ -1,4 +1,4 @@
-@WebTable
+@WebTable @gui
 Feature: WebTableHelper - This feature provides helper methods to interact with web table elements,
   such as retrieving cell text, clicking cells, and performing searches within the table.
 

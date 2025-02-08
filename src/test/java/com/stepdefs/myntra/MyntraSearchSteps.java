@@ -1,4 +1,4 @@
-package com.myntra.stepdefs;
+package com.stepdefs.myntra;
 
 import com.common.TestHooks;
 import com.myntra.pages.MyntraPageManager;

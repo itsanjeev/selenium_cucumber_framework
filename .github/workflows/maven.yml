@@ -28,7 +28,7 @@ jobs:
 
     # Run tests with Maven (assuming tests are already part of the Maven build lifecycle)
     - name: Run tests
-      run: mvn -Dtest=HerokuAppTestRunner test
+      run: mvn -Dtest=TestRunner test
 
     # Optional: Generate and upload Cucumber report (assuming Cucumber is configured to generate a report)
     - name: Upload Cucumber Report

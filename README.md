@@ -7,6 +7,7 @@ plain English using the Gherkin syntax, making test cases more readable and coll
 
 This framework is ideal for teams and individuals who aim to quickly set up a robust and maintainable automation testing
 strategy while creating clear and understandable automated test scenarios.
+![image](https://github.com/user-attachments/assets/41dec2f7-851d-41cc-a271-5299bf522d9e)
 
 ---
 
